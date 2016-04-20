@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <link rel="manifest" href="/manifest.json">
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+  <script>
+    var OneSignal = OneSignal || [];
+    OneSignal.push(["init", {
+      appId: "9b67992c-8a8f-4a18-9e44-7d3c61622ff5",
+      autoRegister: true,
+      notifyButton: {
+        enable: true // Set to false to hide
+      }
+    }]);
+  </script>
+  <title>Notifications testimplementation One Signal</title>
+  <meta charset="utf-8" />
+
+</head>
+
+<body>
+
+  <h1>Testing to send browser notifications by One Signal</h1>
+  <button id="OneSignalNotification" onclick="alert('A notification was sent!')">
+    Send notif?</button>
+
+  <a href="#" id="subscribe-link"></a>
+  <script>
+    function subscribe() {
+        OneSignal.push(["registerForPushNotifications"]);
+        event.preventDefault();
+    }
+
+    var OneSignal = OneSignal || [];
+
+    OneSignal.push(["init", {
+        appId: "9b67992c-8a8f-4a18-9e44-7d3c61622ff5",
+        autoRegister: true
+    }]);
+
+    OneSignal.push(["sendTags", {key2: "value2", key3: "value3"}, function() {
+  // Callback called when tags have finished sending
+}]);
+    OneSignal.push(function() {
+        // If we're on an unsupported browser, do nothing
+        if (!OneSignal.isPushNotificationsSupported()) {
+            return;
+        }
+        OneSignal.isPushNotificationsEnabled(function (isEnabled) {
+            if (isEnabled) {
+                // The user is subscribed to notifications
+                // Don't show anything
+            } else {
+                document.getElementById("subscribe-link").textContent = "Subscribe to Notifications";
+                document.getElementById("subscribe-link").addEventListener('click', subscribe);
+            }
+        });
+    });
+</script>
+
+<
+
+</body>
+
+<html>

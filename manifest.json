@@ -1,0 +1,8 @@
+{
+  "name": "Test With One Signal",
+  "short_name": "TestWithOneSignal",
+  "start_url": "/",
+  "display": "standalone",
+  "gcm_sender_id": "264804613779",
+  "gcm_user_visible_only": true
+}
